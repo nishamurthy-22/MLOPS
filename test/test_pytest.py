@@ -28,3 +28,11 @@ def test_fun4():
     
     assert calculator.fun4 (-1, -1, 100) == 98
     
+def test_fun5():
+    assert calculator.fun5(10, 2) == 5
+    assert calculator.fun5(-9, 3) == -3
+    assert calculator.fun5(7, 2) == 3.5
+
+def test_fun5_divide_by_zero():
+    with pytest.raises(ZeroDivisionError):
+        calculator.fun5(5, 0)
