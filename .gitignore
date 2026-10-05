@@ -1,1 +1,3 @@
 lab_01/
+.coverage
+coverage.xml
