@@ -2,7 +2,6 @@ import sys
 import os
 import unittest
 
-# Get the path to the project's root directory
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_root)
 
@@ -14,9 +13,12 @@ class TestCalculator(unittest.TestCase):
     def test_fun1(self):
         self.assertEqual(calculator.fun1(2, 3), 5)
         self.assertEqual(calculator.fun1(5, 0), 5)
-        
         self.assertEqual(calculator.fun1(-1, 1), 0)
         self.assertEqual(calculator.fun1(-1, -1), -2)
+
+    def test_fun1_invalid_input(self):
+        with self.assertRaises(ValueError):
+            calculator.fun1("a", 3)
 
     def test_fun2(self):
         self.assertEqual(calculator.fun2(2, 3), -1)
@@ -24,18 +26,30 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.fun2(-1, 1), -2)
         self.assertEqual(calculator.fun2(-1, -1), 0)
 
+    def test_fun2_invalid_input(self):
+        with self.assertRaises(ValueError):
+            calculator.fun2(10, "b")
+
     def test_fun3(self):
         self.assertEqual(calculator.fun3(2, 3), 6)
         self.assertEqual(calculator.fun3(5, 0), 0)
         self.assertEqual(calculator.fun3(-1, 1), -1)
         self.assertEqual(calculator.fun3(-1, -1), 1)
 
+    def test_fun3_invalid_input(self):
+        with self.assertRaises(ValueError):
+            calculator.fun3(None, 4)
+
     def test_fun4(self):
         self.assertEqual(calculator.fun4(2, 3, 5), 10)
         self.assertEqual(calculator.fun4(5, 0, -1), 4)
         self.assertEqual(calculator.fun4(-1, -1, -1), -3)
         self.assertEqual(calculator.fun4(-1, -1, 100), 98)
-	
+
+    def test_fun4_decimals(self):
+        self.assertEqual(calculator.fun4(1.5, 2.5, 3), 7.0)
+        self.assertEqual(calculator.fun4(0.25, 0.25, 0.5), 1.0)
+
     def test_fun5(self):
         self.assertEqual(calculator.fun5(10, 2), 5)
         self.assertEqual(calculator.fun5(-9, 3), -3)
@@ -44,6 +58,33 @@ class TestCalculator(unittest.TestCase):
     def test_fun5_divide_by_zero(self):
         with self.assertRaises(ZeroDivisionError):
             calculator.fun5(5, 0)
+
+    def test_fun6(self):
+        self.assertEqual(calculator.fun6(2, 3), 8)
+        self.assertEqual(calculator.fun6(5, 0), 1)
+        self.assertEqual(calculator.fun6(4, 0.5), 2)
+
+    def test_fun6_invalid_input(self):
+        with self.assertRaises(ValueError):
+            calculator.fun6("2", 3)
+
+    def test_fun7(self):
+        self.assertEqual(calculator.fun7(10, 3), 1)
+        self.assertEqual(calculator.fun7(9, 3), 0)
+        self.assertEqual(calculator.fun7(-7, 3), 2)
+
+    def test_fun7_modulus_by_zero(self):
+        with self.assertRaises(ZeroDivisionError):
+            calculator.fun7(5, 0)
+
+    def test_fun8(self):
+        self.assertEqual(calculator.fun8(4, 6), 5)
+        self.assertEqual(calculator.fun8(-2, 2), 0)
+        self.assertEqual(calculator.fun8(1, 2), 1.5)
+
+    def test_fun8_invalid_input(self):
+        with self.assertRaises(ValueError):
+            calculator.fun8([1, 2], 3)
 
 
 if __name__ == '__main__':

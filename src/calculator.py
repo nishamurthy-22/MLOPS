@@ -75,8 +75,61 @@ def fun5(x, y):
         raise ZeroDivisionError("Cannot divide by zero.")
     return x / y
 
+def fun6(x, y):
+    """
+    Raises x to the power of y.
+    Args:
+        x (int/float): Base.
+        y (int/float): Exponent.
+    Returns:
+        int/float: x raised to the power y.
+    Raises:
+        ValueError: If x or y is not a number.
+    """
+    if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
+        raise ValueError("Both inputs must be numbers.")
+    return x ** y
+
+
+def fun7(x, y):
+    """
+    Returns the remainder of x divided by y.
+    Args:
+        x (int/float): Dividend.
+        y (int/float): Divisor.
+    Returns:
+        int/float: Remainder of x / y.
+    Raises:
+        ValueError: If x or y is not a number.
+        ZeroDivisionError: If y is zero.
+    """
+    if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
+        raise ValueError("Both inputs must be numbers.")
+    if y == 0:
+        raise ZeroDivisionError("Cannot take modulus by zero.")
+    return x % y
+
+
+def fun8(x, y):
+    """
+    Returns the average of x and y.
+    Args:
+        x (int/float): First number.
+        y (int/float): Second number.
+    Returns:
+        float: Average of x and y.
+    Raises:
+        ValueError: If x or y is not a number.
+    """
+    if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
+        raise ValueError("Both inputs must be numbers.")
+    return (x + y) / 2
+
 # f1_op = fun1(2,3)
 # f2_op = fun2(2,3)
 # f3_op = fun3(2,3)
 # f4_op = fun4(f1_op,f2_op,f3_op)
 # f5_op = fun5(2,3)
+# f6_op = fun6(2,3)
+# f7_op = fun7(2,3)
+# f8_op = fun8(2,3)
