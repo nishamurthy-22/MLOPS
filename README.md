@@ -10,11 +10,12 @@ Lab 1: Python virtual environment, tests with pytest and unittest, and CI with G
 - `data/` - placeholder folder for data files
 
 ## How to run locally
-python3 -m venv lab_01
-source lab_01/bin/activate
-pip install -r requirements.txt
-python3 -m pytest test/test_pytest.py --cov=src --cov-report=term
-python3 -m unittest test.test_unittest -v
+
+    python3 -m venv lab_01
+    source lab_01/bin/activate
+    pip install -r requirements.txt
+    python3 -m pytest test/test_pytest.py --cov=src --cov-report=term
+    python3 -m unittest test.test_unittest -v
 
 ## What I changed from the original lab
 - Added four new functions to the calculator: division (fun5), power (fun6), modulus (fun7) and average (fun8). Division and modulus also check for divide by zero.
